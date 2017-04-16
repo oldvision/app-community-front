@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { Routing } from "./app.routing";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainHeaderComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

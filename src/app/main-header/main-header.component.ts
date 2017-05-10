@@ -17,4 +17,8 @@ export class MainHeaderComponent implements OnInit {
   sign(){
     this.route.navigate(['/login']);
   }
+
+  dashboard(){
+    this.route.navigate(['/management']);
+  }
 }

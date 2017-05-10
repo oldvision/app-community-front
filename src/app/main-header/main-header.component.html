@@ -1,14 +1,18 @@
 
-<div class="menu">
-  <div class="container-fluid">
+
+
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a href="#">Worldwide Debate</a>
     </div>
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a (click)="sign()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="pull-left"><a (click)="dashboard()">Dashboard</a></li>
+        <li><a href="/" class="navbar-brand">Worldwide Debate</a></li>
+        <li class="pull-right"><a (click)="sign()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
-    </div>
-  </div>
-</div>
+    </div><!-- /.navbar-collapse -->
+</nav>
 

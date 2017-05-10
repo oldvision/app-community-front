@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,13 +10,15 @@ import { MainFooterComponent } from './main-footer/main-footer.component';
 import { Routing } from "./app.routing";
 import { LoginComponent } from './login/login.component';
 import {AuthService} from "./login/auth.service";
+import { ManagementComponent } from './management/management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainHeaderComponent,
     MainFooterComponent,
-    LoginComponent
+    LoginComponent,
+    ManagementComponent
   ],
   imports: [
     BrowserModule,

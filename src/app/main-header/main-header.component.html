@@ -11,7 +11,8 @@
       <ul class="nav navbar-nav">
         <li class="pull-left"><a (click)="dashboard()">Dashboard</a></li>
         <li><a href="/" class="navbar-brand">Worldwide Debate</a></li>
-        <li class="pull-right"><a (click)="sign()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li class="pull-right" *ngIf="!isAuthenticate()"><a (click)="sign()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li class="pull-right" *ngIf="isAuthenticate()"><a (click)="signOut()"><span class="glyphicon glyphicon-log-out"></span> Sign-out</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav>

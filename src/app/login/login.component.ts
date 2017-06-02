@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(from: string){
-    this.authService.signUp(from);
+    this.authService.signIn(from);
   }
 
   loginEmailPassword(){

@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as firebase from "firebase/app";
+import {Router} from "@angular/router";
+
 
 @Injectable()
 export class AuthService {
 
-  token : string;
+  constructor(private router:Router){
+
+  };
 
   signUpEmailPassword(email:string, password:string){
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
@@ -14,22 +18,22 @@ export class AuthService {
   }
 
 
-  signUp(from: string){
-
-    firebase.auth().signInWithPopup(this.getProviderSignIn(from)).then(function(result){
-        this.token = result.credential.accessToken;
-    }).catch(function(error){
-      var errorCode = error.name;
-      var errorMessage = error.message;
-    });
-
+  signIn(from: string){
+    this.router.navigate(['/']);
+    firebase.auth().signInWithPopup(this.getProviderSignIn(from))
+      .then(r =>
+        this.router.navigate(['/']).then(
+          r => location.reload(true)
+        )
+      ).catch(error =>
+        this.router.navigate(['/login'])
+    );
   }
 
   signOut(){
-    firebase.auth().signOut().then(function(){
-
-    }).catch(function(error){
-
+    firebase.auth().signOut().then(response =>
+       this.router.navigate(['/login'])
+    ).catch(function(error){
     });
   }
 
@@ -37,17 +41,30 @@ export class AuthService {
     switch(from){
       case "google": return new firebase.auth.GoogleAuthProvider();
       case "facebook": return new firebase.auth.FacebookAuthProvider();
+
     }
   }
 
   getTokenUser(){
-    firebase.auth().currentUser.getToken().then((token:string) => this.token = token);
-    return this.token;
+    var user = firebase.auth().currentUser;
+    console.log(user.getToken());
+    if(user){
+      console.log(user.getToken());
+      return user.getToken();
+    }else{
+      console.log(user.getToken());
+      return null;
+    }
   }
 
 
   isAuthenticate(){
-      return this.token != null;
+    var user = firebase.auth().currentUser;
+    if(user != null){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 

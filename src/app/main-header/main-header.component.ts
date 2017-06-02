@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'app-main-header',
@@ -8,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class MainHeaderComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -19,6 +20,15 @@ export class MainHeaderComponent implements OnInit {
   }
 
   dashboard(){
+    console.log("is logging ? " + this.authService.isAuthenticate());
     this.route.navigate(['/management']);
+  }
+
+  signOut(){
+    this.authService.signOut();
+  }
+
+  isAuthenticate(){
+    return this.authService.isAuthenticate();
   }
 }

@@ -74,18 +74,6 @@ button.btn:focus { outline: 0; opacity: 0.6; background: #4aaf51; color: #fff; }
 button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #4aaf51; color: #fff; }
 
 
-/*                                                                                                            */
-
-
-
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #888;
-  line-height: 30px;
-  text-align: center;
-}
 
 strong { font-weight: 500; }
 
@@ -106,7 +94,7 @@ h1, h2 {
 h3 {
   font-size: 22px;
   font-weight: 300;
-  color: #555;
+  color: #555 !important;
   line-height: 30px;
 }
 
@@ -162,6 +150,16 @@ img { max-width: 100%; }
 
 .inner-bg {
   padding: 100px 0 170px 0;
+}
+
+.top-content{
+  font-size: 16px;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .top-content .text {
@@ -263,3 +261,24 @@ img { max-width: 100%; }
 
 }
 
+a {
+  cursor: pointer;
+}
+
+
+.regbutton{
+  margin-top:15px !important;
+  background-color:tomato !important;
+  border-radius: 0px;
+  font-size: 18px;
+  color:white !important;
+  border: none !important;
+}
+.regbutton:hover{
+  color: white !important;
+  background-color:#aa422f !important;
+}
+.regbutton:active{
+  color: white !important;
+  background-color:#aa422f !important;
+}

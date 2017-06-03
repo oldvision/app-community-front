@@ -20,7 +20,6 @@ export class MainHeaderComponent implements OnInit {
   }
 
   dashboard(){
-    console.log("is logging ? " + this.authService.isAuthenticate());
     this.route.navigate(['/management']);
   }
 

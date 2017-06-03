@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./auth.service";
 import {LoginModel} from './models/loginModel';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginModel:LoginModel = new LoginModel();
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit() {
 
@@ -23,6 +24,10 @@ export class LoginComponent implements OnInit {
 
   loginEmailPassword(){
       this.authService.signUpEmailPassword(this.loginModel.email, this.loginModel.password);
+  }
+
+  register(){
+    this.route.navigate(["register"]);
   }
 
 }

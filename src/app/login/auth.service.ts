@@ -24,9 +24,7 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
         r =>
-          this.router.navigate(['/']).then(
-            r => location.reload(true)
-          )
+          this.router.navigate(['/'])
       )
       .catch(r =>
         this.router.navigate(['/login'])
@@ -38,9 +36,7 @@ export class AuthService {
     this.router.navigate(['/']);
     firebase.auth().signInWithPopup(this.getProviderSignIn(from))
       .then(r =>
-        this.router.navigate(['/']).then(
-          r => location.reload(true)
-        )
+        this.router.navigate(['/'])
       ).catch(error =>
         this.router.navigate(['/login'])
     );

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginEmailPassword(){
-      this.authService.signUpEmailPassword(this.loginModel.email, this.loginModel.password);
+      this.authService.signInEmailPassword(this.loginModel.email, this.loginModel.password);
   }
 
   register(){

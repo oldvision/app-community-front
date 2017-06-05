@@ -13,6 +13,7 @@ import {AuthService} from "./login/auth.service";
 import { ManagementComponent } from './management/management.component';
 import {AuthGuard} from "./shared/auth-guard.service";
 import { SignupComponent } from './login/signup/signup.component';
+import {FbdatabaseService} from "./database/fbdatabase.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { SignupComponent } from './login/signup/signup.component';
     Routing,
     NgbModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, FbdatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

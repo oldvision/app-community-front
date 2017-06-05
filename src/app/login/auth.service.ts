@@ -1,20 +1,36 @@
 import { Injectable } from '@angular/core';
 import * as firebase from "firebase/app";
 import {Router} from "@angular/router";
+import {FbdatabaseService} from "../database/fbdatabase.service";
+import {LoginModel} from "./models/loginModel";
 
 
 @Injectable()
 export class AuthService {
 
-  constructor(private router:Router){
+  constructor(private router:Router, private fbService: FbdatabaseService){
 
   };
 
-  signUpEmailPassword(email:string, password:string){
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
-      var errorCode = error.name;
-      var errorMessage = error.message;
-    })
+  createUserWIthEmailPassword(loginModel:LoginModel){
+    firebase.auth().createUserWithEmailAndPassword(loginModel.email, loginModel.password).then(
+      (user:any) => loginModel.key = user.uid
+    ).then(
+      (user:any) =>this.fbService.insertNewUser(loginModel)
+    )
+  }
+
+  signInEmailPassword(email:string, password:string){
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(
+        r =>
+          this.router.navigate(['/']).then(
+            r => location.reload(true)
+          )
+      )
+      .catch(r =>
+        this.router.navigate(['/login'])
+      )
   }
 
 
